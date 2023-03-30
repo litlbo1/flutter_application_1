@@ -8,10 +8,13 @@ import 'package:flutter_application_1/UserPages/UserLobby.dart';
 import 'AdminPages/AdminLobby.dart';
 import 'Page/CheckUser.dart';
 import 'firebase_options.dart';
+//import 'package:firebase_storage/firebase_storage.dart';
+//import 'package:image_picker/image_picker.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(
+      name: "sobitiye", options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -30,7 +33,7 @@ class MyApp extends StatelessWidget {
         '/emailverify': (context) => const EmailVerificationScreen(),
         '/forgot': (context) => const ForgotPass(),
         '/UserLobby': (context) => const UserLobby(),
-        '/AdminLobby': (context) => const AdminLobby()
+        '/AdminLobby': (context) => const AdminLobby(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,

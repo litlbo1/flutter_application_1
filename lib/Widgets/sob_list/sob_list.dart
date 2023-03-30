@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
@@ -24,24 +25,34 @@ class _sob_listState extends State<sob_list> {
             return const Text('no data');
           }
           return GridView.builder(
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, mainAxisExtent: 270),
             itemCount: userSnapshot.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    width: 185,
-                    height: 340,
-                    color: Colors.blue,
-                    child: Container(
-                      alignment: Alignment.bottomCenter,
-                      child: Text(userSnapshot[index]["name"]),
-                    ),
-                  ),
-                ),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 5.0),
+                child: Container(
+                    decoration: const BoxDecoration(
+                        color: Color(0xFFDCD6D6),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    clipBehavior: Clip.hardEdge,
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Image(
+                            image: NetworkImage(userSnapshot[index]["image"]),
+                            height: 210,
+                            fit: BoxFit.fill,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Container(
+                              alignment: Alignment.bottomCenter,
+                              child: Text(userSnapshot[index]["name"]),
+                            ),
+                          ),
+                        ])),
               );
             },
             //itemCount: userSnapshot.length,

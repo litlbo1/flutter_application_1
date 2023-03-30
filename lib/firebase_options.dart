@@ -49,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '182267355568',
     projectId: 'sobitiye-cb37f',
     authDomain: 'sobitiye-cb37f.firebaseapp.com',
+    databaseURL: 'https://sobitiye-cb37f-default-rtdb.firebaseio.com',
     storageBucket: 'sobitiye-cb37f.appspot.com',
   );
 
@@ -57,6 +58,7 @@ class DefaultFirebaseOptions {
     appId: '1:182267355568:android:732fbcb384e57883d9b675',
     messagingSenderId: '182267355568',
     projectId: 'sobitiye-cb37f',
+    databaseURL: 'https://sobitiye-cb37f-default-rtdb.firebaseio.com',
     storageBucket: 'sobitiye-cb37f.appspot.com',
   );
 
@@ -65,6 +67,7 @@ class DefaultFirebaseOptions {
     appId: '1:182267355568:ios:cd7d62d37e5428c4d9b675',
     messagingSenderId: '182267355568',
     projectId: 'sobitiye-cb37f',
+    databaseURL: 'https://sobitiye-cb37f-default-rtdb.firebaseio.com',
     storageBucket: 'sobitiye-cb37f.appspot.com',
     iosClientId: '182267355568-ld543ufm35mtr1ab8lduod182vq6h8d7.apps.googleusercontent.com',
     iosBundleId: 'sobitie.2023.3',
@@ -75,6 +78,7 @@ class DefaultFirebaseOptions {
     appId: '1:182267355568:ios:daa4e3f130c6b1d0d9b675',
     messagingSenderId: '182267355568',
     projectId: 'sobitiye-cb37f',
+    databaseURL: 'https://sobitiye-cb37f-default-rtdb.firebaseio.com',
     storageBucket: 'sobitiye-cb37f.appspot.com',
     iosClientId: '182267355568-vd2b37hqviaea4vf7m4ji28e1johdngc.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterApplication1',

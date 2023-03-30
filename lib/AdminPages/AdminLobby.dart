@@ -28,6 +28,7 @@ class _AdminLobbyState extends State<AdminLobby> {
     return Container(
         child: Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF444054),
         title: const Text('Вы вошли как Админ'),
         actions: <Widget>[
           Padding(
@@ -39,7 +40,7 @@ class _AdminLobbyState extends State<AdminLobby> {
                 icon: const Icon(
                   Icons.person,
                   size: 35,
-                  color: Colors.deepPurple,
+                  color: Colors.white,
                 ),
               )),
         ],
@@ -61,7 +62,7 @@ class _AdminLobbyState extends State<AdminLobby> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color(0xFF444054),
         onTap: _onItemTapped,
       ),
     ));
