@@ -1,11 +1,7 @@
-import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
 FirebaseDatabase database = FirebaseDatabase.instance;
@@ -37,10 +33,10 @@ class _LogPageState extends State<LogPage> {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('Wrong Email')));
+            .showSnackBar(const SnackBar(content: Text('Wrong Email')));
       } else if (e.code == 'password-wrong') {
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('Wrong Password')));
+            .showSnackBar(const SnackBar(content: Text('Wrong Password')));
       }
       return null;
     } catch (e) {
@@ -73,18 +69,24 @@ class _LogPageState extends State<LogPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFBEBBBB),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFFBEBBBB),
-      ),
       body: Container(
+        constraints: const BoxConstraints.expand(),
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("images/gif.blur.gif"), fit: BoxFit.cover)),
         alignment: Alignment.center,
         child: SizedBox(
             width: 350,
-            child: Column(
+            child: SingleChildScrollView(
+                child: Column(
               children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 200, right: 80),
+                  child: Text("О, Привет!\n\nХочешь войти?",
+                      style: TextStyle(fontFamily: 'Project1', fontSize: 25)),
+                ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 200),
+                  padding: const EdgeInsets.only(top: 100),
                   child: TextField(
                     controller: _emailController,
                     decoration: InputDecoration(
@@ -94,11 +96,11 @@ class _LogPageState extends State<LogPage> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: const BorderSide(color: Colors.green),
+                        borderSide: const BorderSide(color: Colors.blue),
                       ),
                       hintText: 'Email',
-                      fillColor: Color(0xFFBEBBBB),
-                      filled: true,
+                      //fillColor: Color(0xFFBEBBBB),
+                      filled: false,
                     ),
                   ),
                 ),
@@ -113,11 +115,11 @@ class _LogPageState extends State<LogPage> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: const BorderSide(color: Colors.green),
+                        borderSide: const BorderSide(color: Colors.blue),
                       ),
                       hintText: 'Password',
-                      fillColor: Color(0xFFBEBBBB),
-                      filled: true,
+                      //fillColor: Color(0xFFBEBBBB),
+                      filled: false,
                     ),
                   ),
                 ),
@@ -160,17 +162,8 @@ class _LogPageState extends State<LogPage> {
                                   backgroundColor: Color(0xFF444054)),
                             )),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 200),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/AdminLoginPage');
-                    },
-                    child: Text('Админ'),
-                  ),
-                )
               ],
-            )),
+            ))),
       ),
     );
   }

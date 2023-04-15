@@ -36,7 +36,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
       timer?.cancel();
 
-      Navigator.pushNamed(context, '/home');
+      Navigator.pushNamed(context, '/UserLobby');
     }
   }
 
