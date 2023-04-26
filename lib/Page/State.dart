@@ -27,8 +27,7 @@ class _StatesState extends State<States> {
           Navigator.pushNamed(context, '/UserLobby');
         }
       } else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('ошибка')));
+        Navigator.pushNamed(context, '/MainPage');
       }
     });
   }
@@ -38,7 +37,6 @@ class _StatesState extends State<States> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('Welcome'),
       ),
       body: checkuser(),
     );

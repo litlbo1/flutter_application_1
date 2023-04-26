@@ -1,10 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Page/EmailVerifyPage.dart';
+import 'package:flutter_application_1/Page/FirstPage.dart';
 import 'package:flutter_application_1/Page/ForgotPassPage.dart';
 import 'package:flutter_application_1/Page/LoginPage.dart';
 import 'package:flutter_application_1/Page/RegisterPage.dart';
 import 'package:flutter_application_1/UserPages/UserLobby.dart';
+import 'package:flutter_application_1/Widgets/sob_list/show_sob.dart';
 import 'AdminPages/AdminLobby.dart';
 import 'Page/CheckUser.dart';
 import 'firebase_options.dart';
@@ -26,6 +28,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       //color: Color(0xFFBEBBBB),
       routes: {
+        '/MainPage': (context) => const First(),
         '/first': (context) => const LogPage(),
         '/reg': (context) => const RegPage(),
         '/emailverify': (context) => const EmailVerificationScreen(),

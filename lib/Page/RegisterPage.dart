@@ -46,7 +46,8 @@ class _RegPageState extends State<RegPage> {
         "email": emailController,
         "password": passwordController,
         "city": "city",
-        "role": "user"
+        "role": "user",
+        "sob": ""
       });
 
       return userCredential.user;

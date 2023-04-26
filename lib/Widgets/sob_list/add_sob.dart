@@ -53,13 +53,15 @@ class _AddSobState extends State<AddSob> {
       return;
     }
 
-    DocumentReference<Map<String, dynamic>> ref =
-        FirebaseFirestore.instance.collection('posts').doc();
+    CollectionReference ref = FirebaseFirestore.instance.collection('posts');
 
-    await ref.set({
+    String docId = ref.doc().id;
+
+    await ref.doc(docId).set({
       "name": _namesob.text,
       "discription": _descsob.text,
-      "image": imageUrl
+      "image": imageUrl,
+      "id": docId
     });
 
     _namesob.clear();

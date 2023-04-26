@@ -28,11 +28,11 @@ class _AdminLobbyState extends State<AdminLobby> {
     return Container(
         child: Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF444054),
+        backgroundColor: const Color(0xFF444054),
         title: const Text('Вы вошли как Админ'),
         actions: <Widget>[
           Padding(
-              padding: EdgeInsets.only(right: 10),
+              padding: const EdgeInsets.only(right: 10),
               child: IconButton(
                 onPressed: () async {
                   await FirebaseAuth.instance.signOut();
