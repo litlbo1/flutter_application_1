@@ -1,12 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_application_1/Page/Profile.dart';
-import '../Widgets/sob_list/add_sob.dart';
+import 'package:flutter_application_1/Page/Sob_place.dart';
 import '../Widgets/sob_list/sob_list.dart';
 import 'Favorites.dart';
-import 'package:sendbird_sdk/sendbird_sdk.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class UserLobby extends StatefulWidget {
@@ -33,7 +29,7 @@ class _UserLobbyState extends State<UserLobby> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: 70,
-        backgroundColor: Color(0xFFB8B6D7),
+        backgroundColor: const Color(0xFFB8B6D7),
         title: DropdownButton(
             items: dropdownItems,
             value: selectedValue,
@@ -46,7 +42,7 @@ class _UserLobbyState extends State<UserLobby> {
           //FloatingActionButton(onPressed: () {}),
           Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: Container(
+            child: SizedBox(
               width: 70,
               child: Image.network(
                 'https://cdn.freelance.ru/images/att/1575043_900_600.png',
@@ -68,13 +64,13 @@ class _UserLobbyState extends State<UserLobby> {
       ),
       body: Center(child: _page.elementAt(_selectedIndex)),
       bottomNavigationBar: Container(
-        color: Color(0xFFB8B6D7),
+        color: const Color(0xFFB8B6D7),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: GNav(
-            tabBackgroundColor: Color(0xFFC5C9E8),
+            tabBackgroundColor: const Color(0xFFC5C9E8),
             gap: 4,
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             tabs: const [
               GButton(
                 icon: Icons.list,
@@ -106,29 +102,29 @@ class _UserLobbyState extends State<UserLobby> {
   }
 
   static final List<Widget> _page = <Widget>[
-    sob_list(),
+    const sob_list(),
     FavoriteSob(),
-    Icon(Icons.access_alarm),
-    UsersProfile()
+    const SobPlace(),
+    const UsersProfile()
   ];
 
   List<DropdownMenuItem<String>> get dropdownItems {
     List<DropdownMenuItem<String>> menuItems = [
       const DropdownMenuItem(
-          child: const Text(
+          value: "Москва",
+          child: Text(
             "Москва",
             style: TextStyle(color: Colors.black),
-          ),
-          value: "Москва"),
+          )),
       const DropdownMenuItem(
-          child: Text("Санкт-Петербург", style: TextStyle(color: Colors.black)),
-          value: "Санкт-Петербург"),
+          value: "Санкт-Петербург",
+          child: Text("Санкт-Петербург", style: TextStyle(color: Colors.black))),
       const DropdownMenuItem(
-          child: Text("Астрахань", style: TextStyle(color: Colors.black)),
-          value: "Астрахань"),
+          value: "Астрахань",
+          child: Text("Астрахань", style: TextStyle(color: Colors.black))),
       const DropdownMenuItem(
-          child: Text("Самара", style: TextStyle(color: Colors.black)),
-          value: "Самара"),
+          value: "Самара",
+          child: Text("Самара", style: TextStyle(color: Colors.black))),
     ];
     return menuItems;
   }

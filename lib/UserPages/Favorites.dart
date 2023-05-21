@@ -44,51 +44,144 @@ class FavoriteSob extends StatelessWidget {
                           Image(
                               image: NetworkImage(
                                   userSnapshot[index]["image_sob"])),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 40),
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: Text(userSnapshot[index]['name_sob']),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 150),
-                            child: Container(
-                              alignment: Alignment.bottomRight,
-                              child: IconButton(
-                                icon: const Icon(Icons.exit_to_app),
-                                onPressed: () {
-                                  id = userSnapshot[index]['sob'];
-                                  showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return AlertDialog(
-                                          title: const Text("Удалить Событие"),
-                                          content: SingleChildScrollView(
-                                            child: ListBody(
-                                              children: const [
-                                                Text(
-                                                    "Вы точно хотите удалить событие?")
-                                              ],
+                          Expanded(
+                            flex: 3,
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 2,
+                                  child: Container(
+                                    alignment: Alignment.topCenter,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(top: 30),
+                                      child: Text(
+                                        userSnapshot[index]['name_sob'],
+                                        style: const TextStyle(fontSize: 18),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        bottom: 5, left: 5),
+                                    child: Container(
+                                      alignment: Alignment.bottomLeft,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: Colors.green.shade100,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(10.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    border: Border.all()),
+                                                child: const Padding(
+                                                  padding: EdgeInsets.all(2.0),
+                                                  child: Center(
+                                                    child: Text(
+                                                      "Бесплатно",
+                                                      style: TextStyle(
+                                                          fontSize: 14),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                          actions: [
-                                            TextButton(
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                                child: const Text("Отмена")),
-                                            TextButton(
-                                                onPressed: () {
-                                                  DeleteSob();
-                                                  Navigator.of(context).pop();
-                                                },
-                                                child: const Text("Удалить"))
-                                          ],
-                                        );
-                                      });
-                                },
-                              ),
+                                          Expanded(
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(10.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    border: Border.all()),
+                                                child: const Padding(
+                                                  padding: EdgeInsets.all(2.0),
+                                                  child: Center(
+                                                    child: Text(
+                                                      "до 10:00",
+                                                      style: TextStyle(
+                                                          fontSize: 14),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            //flex: 1,
+                            child: Column(
+                              children: [
+                                Expanded(
+                                    child: Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Container(
+                                      alignment: Alignment.topRight,
+                                      child: const Icon(Icons.warning)),
+                                )),
+                                Expanded(
+                                  flex: 2,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(),
+                                    child: Container(
+                                      alignment: Alignment.bottomRight,
+                                      child: IconButton(
+                                        icon: const Icon(Icons.exit_to_app),
+                                        onPressed: () {
+                                          id = userSnapshot[index]['sob'];
+                                          showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  title: const Text(
+                                                      "Удалить Событие"),
+                                                  content:
+                                                      const SingleChildScrollView(
+                                                    child: ListBody(
+                                                      children: [
+                                                        Text(
+                                                            "Вы точно хотите удалить событие?")
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  actions: [
+                                                    TextButton(
+                                                        onPressed: () {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        },
+                                                        child: const Text(
+                                                            "Отмена")),
+                                                    TextButton(
+                                                        onPressed: () {
+                                                          DeleteSob();
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        },
+                                                        child: const Text(
+                                                            "Удалить"))
+                                                  ],
+                                                );
+                                              });
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           )
                         ],

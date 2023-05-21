@@ -6,7 +6,6 @@ import 'package:flutter_application_1/Page/ForgotPassPage.dart';
 import 'package:flutter_application_1/Page/LoginPage.dart';
 import 'package:flutter_application_1/Page/RegisterPage.dart';
 import 'package:flutter_application_1/UserPages/UserLobby.dart';
-import 'package:flutter_application_1/Widgets/sob_list/show_sob.dart';
 import 'AdminPages/AdminLobby.dart';
 import 'Page/CheckUser.dart';
 import 'firebase_options.dart';

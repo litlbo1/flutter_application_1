@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'LoginPage.dart';
 import 'RegisterPage.dart';
 
@@ -10,7 +8,7 @@ class First extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFcddafd),
+      backgroundColor: const Color(0xFFcddafd),
       body: Container(
           constraints: const BoxConstraints.expand(),
           decoration: const BoxDecoration(
@@ -42,15 +40,15 @@ class First extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => const LogPage()));
                       },
-                      child: const Text('Войти'),
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12)),
-                          backgroundColor: Color(0xFF444054)),
+                          backgroundColor: const Color(0xFF444054)),
+                      child: const Text('Войти'),
                     ),
                   )),
               Padding(
-                  padding: EdgeInsets.only(top: 30),
+                  padding: const EdgeInsets.only(top: 30),
                   child: SizedBox(
                       width: 370,
                       height: 50,
@@ -59,13 +57,13 @@ class First extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => RegPage()));
+                                  builder: (context) => const RegPage()));
                         },
-                        child: Text('Создать аккаунт'),
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12)),
-                            backgroundColor: Color(0xFF444054)),
+                            backgroundColor: const Color(0xFF444054)),
+                        child: const Text('Создать аккаунт'),
                       )))
             ],
           )),

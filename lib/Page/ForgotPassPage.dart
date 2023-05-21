@@ -1,9 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import 'FirstPage.dart';
 
@@ -21,13 +17,14 @@ class _ForgotPassState extends State<ForgotPass> {
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: forgotpass);
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Сообщение Отправлено')));
+          .showSnackBar(const SnackBar(content: Text('Сообщение Отправлено')));
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const First()));
     } catch (e) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Error')));
+          .showSnackBar(const SnackBar(content: Text('Error')));
     }
+    return null;
   }
 
   @override
@@ -39,7 +36,7 @@ class _ForgotPassState extends State<ForgotPass> {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 300),
+                padding: const EdgeInsets.only(top: 300),
                 child: TextField(
                   controller: _forgotpass,
                   decoration: InputDecoration(
@@ -58,12 +55,12 @@ class _ForgotPassState extends State<ForgotPass> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 20),
                 child: ElevatedButton(
                     onPressed: () async {
                       await resetPass(forgotpass: _forgotpass.text.trim());
                     },
-                    child: Text("Восстановить")),
+                    child: const Text("Восстановить")),
               )
             ],
           )),

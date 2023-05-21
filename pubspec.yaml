@@ -46,6 +46,7 @@ dependencies:
   slide_to_act: ^2.0.1
   sendbird_sdk: ^3.1.15
   google_nav_bar: ^5.0.6
+  image_cropper: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,12 @@ flutter:
     - images/background.jpg
     - images/gif2.gif
     - images/gif.blur.gif
+    - images/1575043_900_600.jpg
+    - images/Travel.jpg
+    - images/City.jpg
+    - images/collage.jpg
+    - images/UnderGround.jpg
+    - images/Adventure.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

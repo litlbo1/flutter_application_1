@@ -32,7 +32,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
     if (isEmailVerified) {
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Почта успешно верифицирована")));
+          const SnackBar(content: Text("Почта успешно верифицирована")));
 
       timer?.cancel();
 

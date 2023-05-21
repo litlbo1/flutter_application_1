@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -23,16 +21,18 @@ class _AddSobState extends State<AddSob> {
   final TextEditingController _namesob = TextEditingController();
   final TextEditingController _descsob = TextEditingController();
   final TextEditingController _photourl = TextEditingController();
+  final TextEditingController _tagsob = TextEditingController();
 
   String imageUrl = '';
 
   final user = FirebaseAuth.instance.currentUser;
 
   CheckFields() {
-    String text1, text2;
+    String text1, text2, text3;
 
     text1 = _namesob.text;
     text2 = _descsob.text;
+    text3 = _tagsob.text;
 
     if (text1.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -61,11 +61,13 @@ class _AddSobState extends State<AddSob> {
       "name": _namesob.text,
       "discription": _descsob.text,
       "image": imageUrl,
-      "id": docId
+      "id": docId,
+      "Tag": _tagsob.text
     });
 
     _namesob.clear();
     _descsob.clear();
+    _tagsob.clear();
   }
 
   void PhotoPicker() async {
@@ -93,61 +95,69 @@ class _AddSobState extends State<AddSob> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: SizedBox(
-        width: 200,
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Text(
-                'Добавить Событие',
-                style: TextStyle(fontSize: 20),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: GestureDetector(
-                onTap: () {
-                  PhotoPicker();
-                },
-                child: const CircleAvatar(
-                  radius: 60,
-                  backgroundColor: Colors.blue,
+    return Scaffold(
+      body: Container(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10, bottom: 10),
+                  child: GestureDetector(
+                    onTap: () {
+                      PhotoPicker();
+                    },
+                    child: const CircleAvatar(
+                      radius: 130,
+                      backgroundColor: Colors.blue,
+                    ),
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: TextField(
-                controller: _namesob,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Название События'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: TextField(
-                controller: _descsob,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: 'Описание'),
-              ),
-            ),
-            SizedBox(
-              width: 200,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: ElevatedButton(
-                  onPressed: () async {
-                    CheckFields();
-                  },
-                  child: const Text("Создать"),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: TextField(
+                    controller: _namesob,
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Название События'),
+                  ),
                 ),
               ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: TextField(
+                  controller: _descsob,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Описание'),
+                ),
+              ),
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: TextField(
+                    controller: _tagsob,
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Теги События'),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 200,
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      CheckFields();
+                    },
+                    child: const Text("Создать"),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

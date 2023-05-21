@@ -60,7 +60,7 @@ class _LogPageState extends State<LogPage> {
         }
       } else {
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('ошибка')));
+            .showSnackBar(const SnackBar(content: Text('ошибка')));
       }
     });
   }
@@ -68,7 +68,7 @@ class _LogPageState extends State<LogPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFBEBBBB),
+      backgroundColor: const Color(0xFFBEBBBB),
       body: Container(
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
@@ -124,16 +124,16 @@ class _LogPageState extends State<LogPage> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 30, left: 150),
+                  padding: const EdgeInsets.only(top: 30, left: 150),
                   child: GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/forgot');
                     },
-                    child: Text('Забыл пароль?'),
+                    child: const Text('Забыл пароль?'),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 30),
+                  padding: const EdgeInsets.only(top: 30),
                   child: SizedBox(
                       width: 150,
                       height: 50,
@@ -155,11 +155,11 @@ class _LogPageState extends State<LogPage> {
                                   _isLoading = false;
                                 });
                               },
-                              child: Text('Войти'),
                               style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12)),
-                                  backgroundColor: Color(0xFF444054)),
+                                  backgroundColor: const Color(0xFF444054)),
+                              child: const Text('Войти'),
                             )),
                 ),
               ],

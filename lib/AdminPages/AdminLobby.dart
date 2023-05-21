@@ -1,8 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_application_1/Widgets/sob_list/add_sob.dart';
 import 'package:flutter_application_1/Widgets/sob_list/sob_list.dart';
 
@@ -62,15 +59,15 @@ class _AdminLobbyState extends State<AdminLobby> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xFF444054),
+        selectedItemColor: const Color(0xFF444054),
         onTap: _onItemTapped,
       ),
     ));
   }
 
   static final List<Widget> _page = <Widget>[
-    sob_list(),
-    AddSob(),
-    Icon(Icons.access_alarm)
+    const sob_list(),
+    const AddSob(),
+    const Icon(Icons.access_alarm)
   ];
 }

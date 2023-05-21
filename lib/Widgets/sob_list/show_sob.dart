@@ -1,11 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_application_1/Page/sob_model.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
 class ShowSo extends StatelessWidget {
@@ -42,6 +37,7 @@ class ShowSo extends StatelessWidget {
       debugPrint(e.toString());
       return null;
     }
+    return null;
   }
 
   @override
@@ -67,7 +63,7 @@ class ShowSo extends StatelessWidget {
             children: [
               Container(
                 alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 50),
+                padding: const EdgeInsets.only(top: 50),
                 child: Image(
                   image: NetworkImage(data['image']),
                   width: 420,
@@ -76,28 +72,69 @@ class ShowSo extends StatelessWidget {
                 ),
               ),
               Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 40, right: 250),
-                child: Text(
-                  "${data['name']}",
-                  style: TextStyle(fontFamily: 'Project1', fontSize: 20),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 20, right: 250),
-                child: Text(
-                  "Бесплатно",
-                  style: TextStyle(fontFamily: 'Project1', fontSize: 15),
+                height: 80,
+                alignment: Alignment.topCenter,
+                color: Colors.blue,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Text(
+                    "${data['name']}",
+                    style:
+                        const TextStyle(fontFamily: 'Project1', fontSize: 20),
+                  ),
                 ),
               ),
               Container(
-                width: 300,
-                padding: EdgeInsets.only(top: 200),
-                child: SlideAction(
-                  child: const Text("Я пойду"),
-                  onSubmit: () async {
-                    FavSob(context: context);
-                  },
+                height: 50,
+                color: Colors.yellow,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Container(
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text("Бесплатно"),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Container(
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text("Город"),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Container(
+                        decoration: BoxDecoration(border: Border.all()),
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text("Велосипед"),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  color: Colors.green,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 30, left: 30),
+                    child: SlideAction(
+                      child: const Text("Я пойду"),
+                      onSubmit: () async {
+                        FavSob(context: context);
+                      },
+                    ),
+                  ),
                 ),
               )
             ],
