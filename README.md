@@ -1,16 +1,22 @@
-# flutter_application_1
+# Событие
 
-A new Flutter project.
+Событие написсано на языке Dart.
+Приложение представляет собой хаб создания событий для времяпрепровождений с людьми.
+Присутствует регистрация и вход, добавлена система создания событий от администратора.
 
-## Getting Started
+# Скриншоты
 
-This project is a starting point for a Flutter application.
+Экран входа:
 
-A few resources to get you started if this is your first Flutter project:
+![вход](https://github.com/litlbo1/flutter_application_1/assets/94563453/f5500037-6e42-4bf0-9efd-d8874f3a6a0d)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Главный экран: 
+![главный](https://github.com/litlbo1/flutter_application_1/assets/94563453/ac4a997f-ab73-48a2-bedf-b5700c598988)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Экран по категориям:
+
+![категории](https://github.com/litlbo1/flutter_application_1/assets/94563453/3b4ace03-b9ba-404b-a0b2-3fb2a5722a61)
+
+Экран личного кабинета:
+![Личный_кабинет](https://github.com/litlbo1/flutter_application_1/assets/94563453/58b976a5-7832-4c2a-8c61-e5520f9ef55b)
+
